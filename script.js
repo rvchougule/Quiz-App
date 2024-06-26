@@ -62,16 +62,29 @@ const quizNum = document.querySelector(".quiz-num");
 const answerContainer = document.querySelector(".answer-container");
 const nextbtn = document.querySelector(".next");
 
+const result = document.querySelector(".result");
+const innerDiv = document.querySelector(".inner");
+const score = document.querySelector(".score");
+const correctQuizPercent = document.querySelector(".correct");
+const wrongQuizPercent = document.querySelector(".wrong");
+const retry = document.querySelector(".retry");
+
 // Quiz's initial state
 let currentQuestionIndex = 0;
 let time = 30;
 let timerID;
+let allQuizes;
+let completedQuizCount;
 
-const allQuizes = JSON.parse(localStorage.getItem("allQuizes")) || {};
+function fetchLocalDB() {
+  allQuizes = JSON.parse(localStorage.getItem("allQuizes")) || {};
 
-let completedQuizCount = Object.values(allQuizes).filter(
-  (quiz) => quiz.id
-).length;
+  completedQuizCount = Object.values(allQuizes).filter(
+    (quiz) => quiz.id
+  ).length;
+}
+
+fetchLocalDB();
 
 highestScore.textContent = `Highest Score ${completedQuizCount}/${questions.length}`;
 
@@ -80,6 +93,11 @@ start.addEventListener("click", () => {
   quizContainer.classList.add("quiz-open");
   document.body.style.backgroundColor = "#CCE2C2";
   QuizStart();
+});
+
+retry.addEventListener("click", () => {
+  container.classList.remove("quiz-open");
+  result.classList.remove("quiz-end");
 });
 
 nextbtn.addEventListener("click", () => {
@@ -158,7 +176,7 @@ function questionClick(choiceID, choiceText) {
   }
   currentQuestionIndex++;
   if (currentQuestionIndex === questions.length) {
-    quizEnd();
+    setTimeout(quizEnd, 500);
   } else if (isCorrect) {
     setTimeout(() => {
       document.querySelector(`#${choiceID}`).classList.remove("correct-anwser");
@@ -172,9 +190,24 @@ function questionClick(choiceID, choiceText) {
 // Stop timer and show final score
 
 function quizEnd() {
+  fetchLocalDB();
   clearInterval(timerID);
-  container.classList.remove("quiz-open");
+  // container.classList.remove("quiz-open");
   quizContainer.classList.remove("quiz-open");
+
+  result.classList.add("quiz-end");
+  document.body.style.backgroundColor = "#f5f5f5";
+
+  score.textContent = `${completedQuizCount}/${questions.length}`;
+  let width = 400 / questions.length;
+  innerDiv.style.width = `${width * completedQuizCount}`;
+
+  correctQuizPercent.textContent = `${
+    (completedQuizCount / questions.length) * 100
+  }%`;
+  wrongQuizPercent.textContent = `${
+    100 - (completedQuizCount / questions.length) * 100
+  }%`;
 }
 
 function clockTick() {
