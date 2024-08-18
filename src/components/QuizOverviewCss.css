@@ -1,0 +1,150 @@
+/* QuizOverviewCss.css */
+/* QuizResults.css */
+
+.quiz-results-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f7f7f7;
+  /* max-height: 350px; */
+  max-width: 1024px;
+  margin-inline: auto;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.quiz-results-container.expanded {
+  max-height: 100%; /* Expand to show all quizzes */
+}
+
+.quiz-item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.quiz-item:hover {
+  transform: scale(1.02);
+}
+
+.quiz-header {
+  border-bottom: 1px solid #e0e0e0;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+}
+
+.quiz-header h2 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: #333;
+}
+
+.difficulty {
+  font-size: 0.9rem;
+  color: #999;
+  text-transform: capitalize;
+}
+
+.difficulty.easy {
+  color: #4caf50;
+}
+
+.difficulty.medium {
+  color: #ff9800;
+}
+
+.difficulty.hard {
+  color: #f44336;
+}
+
+.quiz-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.options {
+  flex: 1;
+}
+
+.options p {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.options ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.options li {
+  margin-bottom: 5px;
+  padding: 8px 12px;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+
+.answer-section {
+  flex: 1;
+  margin-block: auto;
+}
+
+.answer-section p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+.answer-section span {
+  font-weight: bold;
+}
+
+.result {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.correct {
+  color: #4caf50;
+}
+
+.incorrect {
+  color: #f44336;
+}
+
+.toggle-button {
+  text-align: center;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #007bff;
+  height: 40px;
+  background-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  outline: none;
+  border: none;
+  transition: transform 0.3s ease;
+}
+
+.toggle-button:hover {
+  transform: scale(1.02);
+}
+@media (max-width: 600px) {
+  .quiz-body {
+    flex-direction: column;
+  }
+
+  .options {
+    margin-inline: auto;
+  }
+  .answer-section {
+    flex: none;
+    margin-inline: auto;
+  }
+}

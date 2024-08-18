@@ -1,0 +1,79 @@
+<label htmlFor="category">Category</label>
+        <select name="category" id="category">
+          <option value="" hidden>
+            Select Category
+          </option>
+          <option value="9">General Knowledge</option>
+          <option value="10">Entertainment: Books</option>
+          <option value="17">Science & Nature</option>
+          <option value="18">Science: Computers</option>
+          <option value="19">Science: Mathematics</option>
+          <option value="20">Mythology</option>
+          <option value="21">Sports</option>
+          <option value="22">Geography</option>
+          <option value="23">History</option>
+          <option value="24">Politics</option>
+          <option value="25">Art</option>
+          <option value="26">Celebrities</option>
+          <option value="27">Animals</option>
+          <option value="28">Vehicles</option>
+          <option value="29">Entertainment:Comics</option>
+          <option value="30">Science: Gadgets</option>
+          <option value="31">Entertainment: Japanese Anime & Manga</option>
+          <option value="32">Entertainment: Cartoon & Animayions</option>
+        </select>
+
+
+
+const handleAnswer = (e) => {
+    const optionFields = document.querySelectorAll(".option");
+    const answerContainer = document.querySelector(".answer-container");
+    const optionTarget = e.currentTarget;
+
+    try {
+      const targetText = optionTarget.querySelector("h3").textContent;
+      if (targetText === correctAnswer) {
+        optionTarget.classList.add("correct-anwser");
+
+        setTimeout(() => {
+          setCorrectGuesses((prevState) => {
+            return [
+              ...prevState,
+              { quiz: quizes[count], answer: correctAnswer, correct: true },
+            ];
+          });
+          if (count !== quizes.length - 1) {
+            optionTarget.classList.remove("correct-anwser");
+
+            setCount(count + 1);
+          } else {
+            setQuizData(correctGuesses);
+            clearInterval(timerID);
+            navigate("/quiz-result/:quizresult");
+          }
+        }, 2000);
+      } else {
+        optionTarget.classList.add("you-choose");
+
+        optionFields.forEach((option) => {
+          let choice = option.querySelector("h3").textContent;
+          if (choice == correctAnswer) {
+            document
+              .querySelector(`#${option.id}`)
+              .classList.add("correct-anwser");
+          }
+        });
+        answerContainer.style.pointerEvents = "none";
+        setCorrectGuesses((prevState) => {
+          return [
+            ...prevState,
+            { quiz: quizes[count], answer: targetText, correct: false },
+          ];
+        });
+      }
+      clearInterval(timerID);
+      console.log(correctGuesses);
+    } catch (e) {
+      console.error(e);
+    }
+  };

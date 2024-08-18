@@ -1,0 +1,90 @@
+[
+  {
+    "type": "multiple",
+    "difficulty": "hard",
+    "category": "Science: Computers",
+    "question": "What major programming language does Unreal Engine 4 use?",
+    "correct_answer": "C++",
+    "incorrect_answers": ["Assembly", "C#", "ECMAScript"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "hard",
+    "category": "Science: Computers",
+    "question": "What vulnerability ranked #1 on the OWASP Top 10 in 2013?",
+    "correct_answer": "Injection ",
+    "incorrect_answers": [
+      "Broken Authentication",
+      "Cross-Site Scripting",
+      "Insecure Direct Object References"
+    ]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "easy",
+    "category": "Science: Computers",
+    "question": "What amount of bits commonly equals one byte?",
+    "correct_answer": "8",
+    "incorrect_answers": ["1", "2", "64"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Science: Computers",
+    "question": "Moore&#039;s law originally stated that the number of transistors on a microprocessor chip would double every...",
+    "correct_answer": "Year",
+    "incorrect_answers": ["Four Years", "Two Years", "Eight Years"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "hard",
+    "category": "Science: Computers",
+    "question": "What does the International System of Quantities refer 1024 bytes as?",
+    "correct_answer": "Kibibyte",
+    "incorrect_answers": ["Kylobyte", "Kilobyte", "Kelobyte"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Science: Computers",
+    "question": "All of the following programs are classified as raster graphics editors EXCEPT:",
+    "correct_answer": "Inkscape",
+    "incorrect_answers": ["Paint.NET", "GIMP", "Adobe Photoshop"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "easy",
+    "category": "Science: Computers",
+    "question": "How many kilobytes in one gigabyte (in decimal)?",
+    "correct_answer": "1000000",
+    "incorrect_answers": ["1024", "1000", "1048576"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Science: Computers",
+    "question": "How many cores does the Intel i7-6950X have?",
+    "correct_answer": "10",
+    "incorrect_answers": ["12", "8", "4"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Science: Computers",
+    "question": ".rs is the top-level domain for what country?",
+    "correct_answer": "Serbia",
+    "incorrect_answers": ["Romania", "Russia", "Rwanda"]
+  },
+  {
+    "type": "multiple",
+    "difficulty": "medium",
+    "category": "Science: Computers",
+    "question": "What does the term MIME stand for, in regards to computing?",
+    "correct_answer": "Multipurpose Internet Mail Extensions",
+    "incorrect_answers": [
+      "Mail Internet Mail Exchange",
+      "Multipurpose Interleave Mail Exchange",
+      "Mail Interleave Method Exchange"
+    ]
+  }
+]
